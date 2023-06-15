@@ -1,17 +1,26 @@
 .confirm {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
   background: #fff;
   border: 1px solid #000;
   padding: 1rem;
   min-width: 200px;
   animation-name: easeIn;
-  animation-duration: 0.2s;
+  animation-duration: 100ms;
   animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
+  animation-fill-mode: none;
   z-index: 99999;
+
+  &__backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99998;
+  }
 }
 .confirm__message {
   margin-bottom: 1rem;
@@ -29,12 +38,26 @@
 @keyframes easeIn {
   from {
     opacity: 0;
-    transform: scale(0.5);
   }
   to {
     opacity: 1;
-    transform: scale(1);
   }
+}
+
+@keyframes easeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.confirm--close {
+  animation-name: easeOut;
+  animation-duration: 100ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: none;
 }
 
 .backdrop {
@@ -44,5 +67,5 @@
   width: 100vw;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 99998;
 }

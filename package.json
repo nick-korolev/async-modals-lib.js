@@ -5,6 +5,7 @@
   "main": "confirm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development --watch",
     "build": "webpack --mode production",
     "build:pub": "IS_PUBLISH=1 webpack --mode production",
     "prettier": "npx prettier --write ./packages/**/*.{js,ts,scss,html}"
