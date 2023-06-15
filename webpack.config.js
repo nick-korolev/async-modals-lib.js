@@ -1,6 +1,6 @@
 const path = require('path');
 
-const publish = process.argv.indexOf('--publish') !== -1;
+const publish = process.env.IS_PUBLISH === '1';
 const outputDir = publish ? 'dist' : '.';
 
 module.exports = {
