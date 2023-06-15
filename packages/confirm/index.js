@@ -9,6 +9,7 @@ const confirmModal = async (options) => {
   const root = options.root || document.body;
   const confirm = document.createElement('div');
   confirm.innerHTML = `
+    <div class="backdrop"></div>
     <div class="confirm">
       <div class="confirm__message">${message}</div>
       <button class="confirm__button confirm__button--ok">OK</button>

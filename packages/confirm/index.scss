@@ -1,8 +1,3 @@
-body {
-  background: rgba(0, 0, 0, 0.5);
-  pointer-events: none;
-}
-
 .confirm {
   position: fixed;
   top: 50%;
@@ -16,6 +11,7 @@ body {
   animation-duration: 0.2s;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
+  z-index: 99999;
 }
 .confirm__message {
   margin-bottom: 1rem;
@@ -39,4 +35,14 @@ body {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
