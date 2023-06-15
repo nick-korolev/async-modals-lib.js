@@ -1,3 +1,4 @@
 packages/
 node_modules/
 *.log
+webpack.config.js
