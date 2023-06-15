@@ -1,12 +1,12 @@
 {
   "name": "async-modals-lib.js",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Async Modal Window",
   "main": "confirm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "prepub": "cp package.json ./dist && cp README.md ./dist && cd dist",
+    "prepub": "cp package.json ./dist && cp README.md ./dist",
     "prettier": "npx prettier --write ./packages/**/*.{js,ts,scss,html}"
   },
   "keywords": [
