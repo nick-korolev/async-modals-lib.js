@@ -1,7 +1,7 @@
 const path = require('path');
 
 const publish = process.env.IS_PUBLISH === '1';
-const outputDir = publish ? 'dist' : '.';
+const outputDir = publish ? '.' : 'dist';
 
 module.exports = {
   entry: {
@@ -11,7 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, outputDir),
     filename: '[name].js', // the name will be the key in entry i.e. alert, confirm, prompt
     library: '[name]', // this will also be the key in the entry
-    libraryTarget: 'esm',
+    libraryTarget: 'umd',
     globalObject: 'this',
     umdNamedDefine: true
   },
