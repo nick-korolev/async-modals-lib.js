@@ -1,0 +1,42 @@
+body {
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.confirm {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border: 1px solid #000;
+  padding: 1rem;
+  min-width: 200px;
+  animation-name: easeIn;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+.confirm__message {
+  margin-bottom: 1rem;
+}
+.confirm__button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #000;
+  background: #fff;
+  cursor: pointer;
+}
+.confirm__button--ok {
+  margin-right: 1rem;
+}
+
+@keyframes easeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
