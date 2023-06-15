@@ -1,6 +1,6 @@
 {
   "name": "async-modals-lib.js",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Async Modal Window",
   "main": "confirm.js",
   "scripts": {
