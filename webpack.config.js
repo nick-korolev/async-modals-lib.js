@@ -1,14 +1,17 @@
 const path = require('path');
 
+const publish = process.argv.indexOf('--publish') !== -1;
+const outputDir = publish ? 'dist' : '.';
+
 module.exports = {
   entry: {
     'confirm': './packages/confirm/index.js',
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, outputDir),
     filename: '[name].js', // the name will be the key in entry i.e. alert, confirm, prompt
     library: '[name]', // this will also be the key in the entry
-    libraryTarget: 'umd',
+    libraryTarget: 'esm',
     globalObject: 'this',
     umdNamedDefine: true
   },
