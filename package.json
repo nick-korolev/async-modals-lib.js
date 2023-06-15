@@ -1,8 +1,8 @@
 {
   "name": "async-modals-lib.js",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Async Modal Window",
-  "main": "confirm.js",
+  "main": "dist/confirm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
