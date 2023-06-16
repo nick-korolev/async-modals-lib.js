@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const publish = process.env.IS_PUBLISH === '1';
 const outputDir = publish ? '.' : 'dist';
@@ -11,12 +12,21 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, outputDir),
-    filename: '[name].js', // the name will be the key in entry i.e. alert, confirm, prompt
-    library: '[name]', // this will also be the key in the entry
+    filename: '[name].js',
+    library: '[name]',
     libraryTarget: 'umd',
     globalObject: 'this',
     umdNamedDefine: true
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: 'packages/confirm/index.d.ts', to: 'confirm.d.ts' },
+        { from: 'packages/alert/index.d.ts', to: 'alert.d.ts' },
+        { from: 'packages/prompt/index.d.ts', to: 'prompt.d.ts' },
+      ]
+    })
+  ],
   module: {
     rules: [
       {
@@ -37,6 +47,6 @@ module.exports = {
     ]
   },
   optimization: {
-    usedExports: true, // for tree shaking
+    usedExports: true,
   },
 };
