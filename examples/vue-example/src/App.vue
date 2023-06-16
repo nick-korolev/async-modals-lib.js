@@ -10,6 +10,7 @@ const promptValue = ref('')
 const rootContainer = ref(null);
 const onConfirmClick = async () => {
   isConfirmed.value = await confirm({
+    title: 'Confirm',
     message: 'Are you sure?',
     okText: 'Okay',
     cancelText: 'Nope',
@@ -21,7 +22,6 @@ const onAlertClick = async () => {
     title: 'Internal error',
     message: 'Something went wrong',
     type: 'error',
-    timeout: 3000,
   });
 }
 

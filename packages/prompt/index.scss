@@ -39,6 +39,30 @@
       animation-fill-mode: none;
     }
   }
+
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  &-message {
+    box-sizing: border-box;
+    color: #000000d9;
+    font-size: 18px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: "tnum";
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 8px 15px;
+    word-wrap: break-word;
+    border-radius: 2px;
+  }
 }
 .amljs-prompt-message {
   margin-bottom: 1rem;
