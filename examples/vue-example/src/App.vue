@@ -7,7 +7,7 @@ import { ref } from "vue";
 
 const isConfirmed = ref(false)
 const promptValue = ref('')
-
+const rootContainer = ref(null);
 const onConfirmClick = async () => {
   isConfirmed.value = await confirm({
     message: 'Are you sure?',
@@ -31,6 +31,16 @@ const onPromptClick = async () => {
     defaultValue: promptValue.value,
   });
 }
+
+const onRootAlertClick = async () => {
+  await alert({
+    title: 'Internal error',
+    message: 'Something went wrong',
+    type: 'error',
+    timeout: 3000,
+    root: rootContainer.value
+  });
+}
 </script>
 
 <template>
@@ -48,6 +58,9 @@ const onPromptClick = async () => {
       <div>
         <button @click="onPromptClick">Prompt</button>
         <p v-if="promptValue">{{ promptValue }}</p>
+      </div>
+      <div ref="rootContainer">
+        <button @click="onRootAlertClick">Root Alert</button>
       </div>
     </div>
   </header>
