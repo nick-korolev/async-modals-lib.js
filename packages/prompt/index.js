@@ -8,8 +8,8 @@ const promptModal = async (options) => {
   const defaultValue = options.defaultValue || '';
 
   const template = `
-    ${title ? `<h1 class="amljs-prompt-title">${title}</h1>` : ''}
-    ${message ? `<p class="amljs-prompt-message">${message}</p>` : ''}
+    ${title ? `<div class="amljs-prompt-title">${title}</div>` : ''}
+    ${message ? `<div class="amljs-prompt-message">${message}</div>` : ''}
     <input class="amljs-prompt-input" type="text" />
     <button class="amljs-prompt-button amljs-prompt-button--ok">${buttonText}</button>
   `;

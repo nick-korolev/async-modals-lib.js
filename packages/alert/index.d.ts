@@ -3,7 +3,7 @@ interface IAlertOptions {
   message?: string;
   okText?: string;
   timeout?: number;
-  type: 'success' | 'info' | 'warning' | 'error';
+  type: 'success' | 'error';
   root?: HTMLElement;
 }
 

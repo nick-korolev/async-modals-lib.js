@@ -11,6 +11,7 @@
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s;
+  width: 48%;
 
   &:hover {
     opacity: 0.8;
@@ -20,7 +21,7 @@
   }
 
   &--cancel {
-    background-color: #f44336; /* red */
+    background-color: #c14242; /* red */
   }
 
 }

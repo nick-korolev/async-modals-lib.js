@@ -1,0 +1,57 @@
+.amljs-checkmark {
+  width: 52px;
+  height: 52px;
+}
+
+.amljs-checkmark__circle {
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.amljs-checkmark__check {
+  stroke-dasharray: 58;
+  stroke-dashoffset: 58;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  animation: stroke 0.150s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+.amljs-crossmark {
+  width: 52px;
+  height: 52px;
+}
+
+.amljs-crossmark__circle {
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #c14242;
+  fill: none;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.amljs-crossmark__cross {
+  stroke-dasharray: 115;
+  stroke-dashoffset: 115;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #c14242;
+  fill: none;
+  animation: stroke 0.150s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+

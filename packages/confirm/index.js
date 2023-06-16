@@ -8,7 +8,7 @@ const confirmModal = async (options) => {
   const cancelText =  options.cancelText || 'Cancel';
 
   const template = `
-    ${title ? `<h1 class="amljs-confirm-title">${title}</h1>` : ''}
+    ${title ? `<div class="amljs-confirm-title">${title}</div>` : ''}
     ${message ? `<p class="amljs-confirm-message">${message}</p>` : ''}
     <button class="amljs-confirm-button amljs-confirm-button--ok">${okText}</button>
     <button class="amljs-confirm-button amljs-confirm-button--cancel">${cancelText}</button>
