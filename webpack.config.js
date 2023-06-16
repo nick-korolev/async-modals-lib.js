@@ -6,6 +6,8 @@ const outputDir = publish ? '.' : 'dist';
 module.exports = {
   entry: {
     'confirm': './packages/confirm/index.js',
+    'alert': './packages/alert/index.js',
+    'prompt': './packages/prompt/index.js',
   },
   output: {
     path: path.resolve(__dirname, outputDir),

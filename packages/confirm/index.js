@@ -5,21 +5,25 @@ const confirmModal = async (options) => {
   const promise = new Promise((resolve) => {
     resolver = resolve;
   });
-  const message = options.message || 'Are you sure?';
+  const title = options.title || '';
+  const message = options.message || '';
+  const okText =  options.okText || 'OK';
+  const cancelText =  options.cancelText || 'Cancel';
   const root = options.root || document.body;
   const confirm = document.createElement('div');
   const backdrop = document.createElement('div');
-  backdrop.classList.add('confirm__backdrop');
+  backdrop.classList.add('amljs-confirm-backdrop');
 
   confirm.innerHTML = `
-    <div class="confirm__message">${message}</div>
-    <button class="confirm__button confirm__button--ok">OK</button>
-    <button class="confirm__button confirm__button--cancel">Cancel</button>
+    ${title ? `<h1 class="amljs-confirm-title">${title}</h1>` : ''}
+    ${message ? `<p class="amljs-confirm-message">${message}</p>` : ''}
+    <button class="amljs-confirm-button amljs-confirm-button--ok">${okText}</button>
+    <button class="amljs-confirm-button amljs-confirm-button--cancel">${cancelText}</button>
   `;
-  confirm.classList.add('confirm');
+  confirm.classList.add('amljs-confirm');
 
-  const okButton = confirm.querySelector('.confirm__button--ok');
-  const cancelButton = confirm.querySelector('.confirm__button--cancel');
+  const okButton = confirm.querySelector('.amljs-confirm-button--ok');
+  const cancelButton = confirm.querySelector('.amljs-confirm-button--cancel');
   const style = document.createElement('style');
   style.textContent = s;
 
@@ -32,7 +36,8 @@ const confirmModal = async (options) => {
   };
 
   const close = () => {
-    confirm.classList.add('confirm--close');
+    confirm.classList.add('amljs-confirm-close');
+    backdrop.classList.add('amljs-confirm-backdrop-close');
     confirm.addEventListener('animationend', cleanup);
   };
 
