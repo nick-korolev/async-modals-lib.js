@@ -6,6 +6,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // eslint-disable-next-line no-undef
+  base: process.env.NODE_ENV === 'production' ? '/async-modals-lib.js/' : '',
   plugins: [
     vue(), 
     vueJsx(),
