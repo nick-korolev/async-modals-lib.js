@@ -1,66 +1,42 @@
 import s from './index.scss';
+import { builder } from '../core/builder';
 
 const confirmModal = async (options) => {
-  let resolver;
-  const promise = new Promise((resolve) => {
-    resolver = resolve;
-  });
   const title = options.title || '';
   const message = options.message || '';
   const okText =  options.okText || 'OK';
   const cancelText =  options.cancelText || 'Cancel';
-  const root = options.root || document.body;
-  const confirm = document.createElement('div');
-  const backdrop = document.createElement('div');
-  backdrop.classList.add('amljs-confirm-backdrop');
 
-  confirm.innerHTML = `
+  const template = `
     ${title ? `<h1 class="amljs-confirm-title">${title}</h1>` : ''}
     ${message ? `<p class="amljs-confirm-message">${message}</p>` : ''}
     <button class="amljs-confirm-button amljs-confirm-button--ok">${okText}</button>
     <button class="amljs-confirm-button amljs-confirm-button--cancel">${cancelText}</button>
   `;
-  confirm.classList.add('amljs-confirm');
 
-  const okButton = confirm.querySelector('.amljs-confirm-button--ok');
-  const cancelButton = confirm.querySelector('.amljs-confirm-button--cancel');
-  const style = document.createElement('style');
-  style.textContent = s;
+  const buttons = [
+    {
+      selector: '.amljs-confirm-button--ok',
+      handler: (resolver) => {
+        resolver(true);
+      }
+    },
+    {
+      selector: '.amljs-confirm-button--cancel',
+      handler: (resolver) => {
+        resolver(false);
+      }
+    }
+  ];
 
-  const cleanup = () => {
-    confirm.remove();
-    style.remove();
-    backdrop.remove();
-    okButton.removeEventListener('click', okButtonHandler);
-    cancelButton.removeEventListener('click', cancelButtonHandler);
-  };
-
-  const close = () => {
-    confirm.classList.add('amljs-confirm-close');
-    backdrop.classList.add('amljs-confirm-backdrop-close');
-    confirm.addEventListener('animationend', cleanup);
-  };
-
-  const okButtonHandler = () => {
-    resolver(true);
-    close();
-  };
-
-  const cancelButtonHandler = () => {
-    resolver(false);
-    close();
-  };
-
-  okButton.addEventListener('click', () => {
-    okButtonHandler();
+  const root = options.root || document.body;
+  const { promise } = builder({
+    template,
+    buttons,
+    root,
+    componentType: 'confirm',
+    s
   });
-  cancelButton.addEventListener('click', () => {
-    cancelButtonHandler();
-  });
-
-  root.appendChild(backdrop);
-  root.appendChild(confirm);
-  root.appendChild(style);
 
   return promise;
 };

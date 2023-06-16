@@ -1,66 +1,44 @@
 import s from './index.scss';
+import { builder } from '../core/builder';
 
 const promptModal = async (options) => {
-  let resolver;
-  const promise = new Promise((resolve) => {
-    resolver = resolve;
-  });
   const title = options.title || '';
   const message = options.message || '';
   const buttonText = options.okText || 'Ok';
   const defaultValue = options.defaultValue || '';
-  const root = options.root || document.body;
-  const prompt = document.createElement('div');
-  const backdrop = document.createElement('div');
-  backdrop.classList.add('amljs-prompt-backdrop');
 
-  prompt.innerHTML = `
+  const template = `
     ${title ? `<h1 class="amljs-prompt-title">${title}</h1>` : ''}
     ${message ? `<p class="amljs-prompt-message">${message}</p>` : ''}
     <input class="amljs-prompt-input" type="text" />
     <button class="amljs-prompt-button amljs-prompt-button--ok">${buttonText}</button>
   `;
-  prompt.classList.add('amljs-prompt');
 
-  const okButton = prompt.querySelector('.amljs-prompt-button--ok');
-  const style = document.createElement('style');
-  style.textContent = s;
-  const input = prompt.querySelector('.amljs-prompt-input');
+  const root = options.root || document.body;
+  const { promise, resolver } = builder({
+    template,
+    buttons: [
+      {
+        selector: '.amljs-prompt-button--ok',
+        handler: (res) => {
+          res(value);
+        }
+      }
+    ],
+    root: options.root || document.body,
+    componentType: 'prompt',
+    s
+  });
+
+  const input = root.querySelector('.amljs-prompt-input');
   let value = defaultValue;
   input.value = value;
   input.addEventListener('keyup', (e) => {
-    if (e.keyCode === 13) {
-      okButtonHandler();
-    }
     value = e.target.value;
+    if (e.keyCode === 13) {
+      resolver(value);
+    }
   });
-
-  const cleanup = () => {
-    prompt.remove();
-    style.remove();
-    backdrop.remove();
-    okButton.removeEventListener('click', okButtonHandler);
-  };
-
-  const close = () => {
-    prompt.classList.add('amljs-prompt-close');
-    backdrop.classList.add('amljs-prompt-backdrop-close');
-    prompt.addEventListener('animationend', cleanup);
-  };
-
-  const okButtonHandler = () => {
-    resolver(value);
-    close();
-  };
-
-  okButton.addEventListener('click', () => {
-    okButtonHandler();
-  });
-
-  root.appendChild(backdrop);
-  root.appendChild(prompt);
-  root.appendChild(style);
-
   input.focus();
   return promise;
 };

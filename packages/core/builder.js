@@ -2,11 +2,11 @@
 /**
  * @param options
  * @param options.template {string} - template
- * @param options.buttons {Array<HTMLElement>} - array of buttons
+ * @param options.buttons {Array<{selector: string, handler: () => void>}>} - array of buttons
  * @param options.root {HTMLElement} - root element
  * @param options.componentType {alert | confirm | prompt} - component type
  * @param options.s {string} - css
- * @returns {Promise<boolean> | Promise<string> | Promise<unknown>}
+ * @returns {{promise: Promise<boolean> | Promise<string> | Promise<unknown>, resolver: (val: unknown) => void}}
  */
 export const builder = (options) => {
   let resolver;
@@ -15,21 +15,30 @@ export const builder = (options) => {
   });
 
   const template = options.template || '';
-  const buttons = options.buttons || [];
   const root = options.root || document.body;
   const component = document.createElement('div');
+  component.tabIndex = 0;
   const backdrop = document.createElement('div');
   backdrop.classList.add(`amljs-${options.componentType}-backdrop`);
   component.innerHTML = template;
   component.classList.add(`amljs-${options.componentType}`);
   const style = document.createElement('style');
   style.textContent = options.s;
+
+  const buttons = (options.buttons || []).map((button) => {
+    const element = component.querySelector(button.selector);
+    return {
+      ...button,
+      element,
+    };
+  });
+
   const cleanup = () => {
     component.remove();
     style.remove();
     backdrop.remove();
     buttons.forEach((button) => {
-      button.removeEventListener('click', button.handler);
+      button.element.removeEventListener('click', button.handler);
     });
   };
   const close = () => {
@@ -39,7 +48,7 @@ export const builder = (options) => {
   };
 
   buttons.forEach((button) => {
-    button.addEventListener('click', () => {
+    button.element.addEventListener('click', () => {
       button.handler(resolver);
       close();
     });
@@ -48,7 +57,11 @@ export const builder = (options) => {
   root.appendChild(backdrop);
   root.appendChild(component);
   root.appendChild(style);
+  component.focus();
 
-  return promise;
+  return { promise, resolver: (val) => {
+    resolver(val);
+    close();
+  } };
 
 };

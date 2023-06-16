@@ -18,9 +18,10 @@ const onConfirmClick = async () => {
 
 const onAlertClick = async () => {
   await alert({
-    message: 'Internal error',
-    type: 'error'
-    // timeout: 3000,
+    title: 'Internal error',
+    message: 'Something went wrong',
+    type: 'error',
+    timeout: 3000,
   });
 }
 
