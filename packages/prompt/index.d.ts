@@ -3,6 +3,7 @@ interface IPromptOptions {
   message?: string;
   okText?: string;
   defaultValue?: string;
+  placeholder?: string;
   root?: HTMLElement;
 }
 

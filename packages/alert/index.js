@@ -29,7 +29,7 @@ const alertModal = async (options) => {
     <div class="amljs-alert-icon">
       ${options.type === 'success' ? SuccessIcon : ErrorIcon}
     </div>
-    ${ message ? `<p class="amljs-alert-message ${alertMessageClass}">${message}</p>` : ''}
+    ${ message ? `<div class="amljs-alert-message ${alertMessageClass}">${message}</div>` : ''}
     ${ timeout ? '' : `<button class="amljs-alert-button ${alertButtonClass}">${buttonText}</button>` }
   `;
 
