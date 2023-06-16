@@ -1,10 +1,9 @@
 {
   "name": "async-modals-lib.js",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Async Modal Window",
   "main": "confirm.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development --watch",
     "example:vue": "cd examples/vue-example && npm run dev",
     "build": "webpack --mode production",
@@ -15,7 +14,8 @@
     "web",
     "js",
     "modal",
-    "ui"
+    "ui",
+    "async"
   ],
   "author": "Nikita Korolev <nick.korolev2011@gmail.com>",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "@typescript-eslint/eslint-plugin": "^5.59.11",
     "@typescript-eslint/parser": "^5.59.11",
     "babel-loader": "^9.1.2",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.3.0",
