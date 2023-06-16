@@ -1,4 +1,9 @@
 @import "button";
+@import "../core/animations/easeIn";
+@import "../core/animations/easeInScaled";
+@import "../core/animations/easeOut";
+@import "../core/animations/easeOutScaled";
+
 .amljs-prompt {
   position: fixed;
   top: 10%;
@@ -9,7 +14,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   width: 300px;
-  animation-name: easeIn;
+  animation-name: easeInScaled;
   animation-duration: 150ms;
   animation-timing-function: ease-in;
   animation-fill-mode: none;
@@ -39,26 +44,9 @@
   margin-bottom: 1rem;
 }
 
-@keyframes easeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes easeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
 
 .amljs-prompt-close {
-  animation-name: easeOut;
+  animation-name: easeOutScaled;
   animation-duration: 150ms;
   animation-timing-function: ease-out;
   animation-fill-mode: none;
