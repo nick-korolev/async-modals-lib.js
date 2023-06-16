@@ -1,5 +1,5 @@
 @import "button";
-.amljs-confirm {
+.amljs-alert {
   position: fixed;
   top: 10%;
   left: calc(50% - 150px);
@@ -35,7 +35,7 @@
     }
   }
 }
-.amljs-confirm-message {
+.amljs-alert-message {
   margin-bottom: 1rem;
 }
 
@@ -57,7 +57,7 @@
   }
 }
 
-.amljs-confirm-close {
+.amljs-alert-close {
   animation-name: easeOut;
   animation-duration: 150ms;
   animation-timing-function: ease-out;

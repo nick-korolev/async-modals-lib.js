@@ -1,10 +1,12 @@
 {
   "name": "async-modals-lib.js",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Async Modal Window",
   "main": "confirm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development --watch",
+    "example:vue": "cd examples/vue-example && npm run dev",
     "build": "webpack --mode production",
     "build:pub": "IS_PUBLISH=1 webpack --mode production",
     "prettier": "npx prettier --write ./packages/**/*.{js,ts,scss,html}"

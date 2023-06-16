@@ -1,5 +1,6 @@
 packages/
 node_modules/
+examples/
 *.log
 webpack.config.js
 .idea

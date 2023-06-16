@@ -1,0 +1,46 @@
+import s from './index.scss';
+import { builder } from '../core/builder';
+
+const promptModal = async (options) => {
+  const title = options.title || '';
+  const message = options.message || '';
+  const buttonText = options.okText || 'Ok';
+  const defaultValue = options.defaultValue || '';
+
+  const template = `
+    ${title ? `<h1 class="amljs-prompt-title">${title}</h1>` : ''}
+    ${message ? `<p class="amljs-prompt-message">${message}</p>` : ''}
+    <input class="amljs-prompt-input" type="text" />
+    <button class="amljs-prompt-button amljs-prompt-button--ok">${buttonText}</button>
+  `;
+
+  const root = options.root || document.body;
+  const { promise, resolver } = builder({
+    template,
+    buttons: [
+      {
+        selector: '.amljs-prompt-button--ok',
+        handler: (res) => {
+          res(value);
+        }
+      }
+    ],
+    root: options.root || document.body,
+    componentType: 'prompt',
+    s
+  });
+
+  const input = root.querySelector('.amljs-prompt-input');
+  let value = defaultValue;
+  input.value = value;
+  input.addEventListener('keyup', (e) => {
+    value = e.target.value;
+    if (e.keyCode === 13) {
+      resolver(value);
+    }
+  });
+  input.focus();
+  return promise;
+};
+
+export default promptModal;
