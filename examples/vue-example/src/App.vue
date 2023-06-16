@@ -29,6 +29,7 @@ const onPromptClick = async () => {
   promptValue.value = await prompt({
     message: 'Type something',
     defaultValue: promptValue.value,
+    placeholder: 'Type here',
   });
 }
 

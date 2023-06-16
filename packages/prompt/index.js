@@ -6,11 +6,12 @@ const promptModal = async (options) => {
   const message = options.message || '';
   const buttonText = options.okText || 'Ok';
   const defaultValue = options.defaultValue || '';
+  const placeholder = options.placeholder || '';
 
   const template = `
     ${title ? `<div class="amljs-prompt-title">${title}</div>` : ''}
     ${message ? `<div class="amljs-prompt-message">${message}</div>` : ''}
-    <input class="amljs-prompt-input" type="text" />
+    <input class="amljs-prompt-input" placeholder="${placeholder}" type="text" />
     <button class="amljs-prompt-button amljs-prompt-button--ok">${buttonText}</button>
   `;
 
