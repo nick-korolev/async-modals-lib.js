@@ -2,6 +2,10 @@
 
 This library provides simple API, and highly customizable way to implement modals in your application. With built-in handling for asynchronous actions, it supports alert modals with customizable success and error states, a user confirmation step with customizable OK and Cancel buttons, a prompt modal component which allows users to enter data.
 
+**No dependencies**
+
+![gzip](https://deno.bundlejs.com/?q=async-modals-lib.js&badge=)
+
 ## Installation
 
 Use the package manager [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) to install Async Modals Library.
