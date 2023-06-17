@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
       - name: Go to examples/vue
-        run: cd examples/vue-examples
+        run: cd examples/vue-example
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
 
@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - name: Go to examples/vue
-        run: cd examples/vue-examples
+        run: cd examples/vue-example
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
