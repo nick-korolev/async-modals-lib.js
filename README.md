@@ -19,7 +19,7 @@ yarn add async-modals-lib.js
 ## Usage
 ### Alert
 ```javascript
-import alertModal from 'async-modals-lib';
+import alertModal from 'async-modals-lib.js';
 
 const options = {
   title: 'Your Title',
@@ -41,7 +41,7 @@ const result = await alertModal(options)
 ### Confirm 
 
 ```javascript
-import confirmModal from 'async-modals-lib';
+import confirmModal from 'async-modals-lib.js';
 
 const options = {
   title: 'Your Title',
@@ -61,7 +61,7 @@ const isConfirmed = await confirmModal(options)
 ### Prompt
 
 ```javascript
-import promptModal from 'async-modals-lib';
+import promptModal from 'async-modals-lib.js';
 
 const options = {
   title: 'Your Title',
