@@ -8,7 +8,9 @@
     "example:vue": "cd examples/vue-example && npm run dev",
     "build": "webpack --mode production",
     "build:pub": "IS_PUBLISH=1 webpack --mode production",
-    "prettier": "npx prettier --write ./packages/**/*.{js,ts,scss,html}"
+    "prettier": "npx prettier --write ./packages/**/*.{js,ts,scss,html}",
+    "build:example:vue": "cd examples/vue-example && npm run publish",
+    "deploy:example:vue": "npm run build:example:vue"
   },
   "keywords": [
     "web",
