@@ -17,7 +17,9 @@
     "js",
     "modal",
     "ui",
-    "async"
+    "async",
+    "vue",
+    "react"
   ],
   "author": "Nikita Korolev <nick.korolev2011@gmail.com>",
   "license": "ISC",
