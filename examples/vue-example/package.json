@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "publish": "IS_PUBLISH=1 npm ci && vite build",
+    "publish": "npm ci && IS_PUBLISH=1 vite build",
     "build": "run-p build-only",
     "preview": "vite preview",
     "build-only": "vite build"
