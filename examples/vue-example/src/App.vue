@@ -73,6 +73,13 @@ const onRootAlertClick = async () => {
 </template>
 
 <style>
+body {
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+  Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+}
 .button {
   background-color: #24292e;
   border: 1px solid rgba(27,31,35,.2);
@@ -91,7 +98,7 @@ const onRootAlertClick = async () => {
   vertical-align: middle;
   white-space: nowrap;
 }
-button:hover {
+.button:hover {
   background-color: #2f363d;
   border-color: rgba(27,31,35,.5);
   color: #fff;
