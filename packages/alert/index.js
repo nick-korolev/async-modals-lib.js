@@ -22,7 +22,7 @@ const alertModal = async (options) => {
   const timeout = options.timeout || null;
   const buttonText =  options.okText || 'OK';
 
-  const alertButtonClass = options.type === 'error' ? 'amljs-alert-button--cancel' : 'amljs-alert-button--ok';
+  const alertButtonClass = options.type === 'error' ? 'amljs-button--cancel' : 'amljs-button--ok';
   const alertMessageClass = options.type === 'error' ? 'amljs-alert-message--error' : 'amljs-alert-message--success';
   const template = `
     ${ title ? `<div class="amljs-alert-title">${title}</div>` : ''}
@@ -30,12 +30,12 @@ const alertModal = async (options) => {
       ${options.type === 'success' ? SuccessIcon : ErrorIcon}
     </div>
     ${ message ? `<div class="amljs-alert-message ${alertMessageClass}">${message}</div>` : ''}
-    ${ timeout ? '' : `<button class="amljs-alert-button ${alertButtonClass}">${buttonText}</button>` }
+    ${ timeout ? '' : `<button class="amljs-alert-button amljs-button ${alertButtonClass}">${buttonText}</button>` }
   `;
 
   const buttons = [
     {
-      selector: `.${alertButtonClass}`,
+      selector: '.amljs-alert-button',
       handler: (resolver) => {
         resolver(true);
       }
@@ -49,7 +49,10 @@ const alertModal = async (options) => {
     root,
     componentType: 'alert',
     s,
-    timeout
+    timeout,
+    closable: options.closable,
+    animation: options.animation,
+    width: options.width,
   });
 
   if (options.timeout) {

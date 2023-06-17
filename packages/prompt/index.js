@@ -12,7 +12,7 @@ const promptModal = async (options) => {
     ${title ? `<div class="amljs-prompt-title">${title}</div>` : ''}
     ${message ? `<div class="amljs-prompt-message">${message}</div>` : ''}
     <input class="amljs-prompt-input" placeholder="${placeholder}" type="text" />
-    <button class="amljs-prompt-button amljs-prompt-button--ok">${buttonText}</button>
+    <button class="amljs-button amljs-prompt-button amljs-button--ok">${buttonText}</button>
   `;
 
   const root = options.root || document.body;
@@ -20,7 +20,7 @@ const promptModal = async (options) => {
     template,
     buttons: [
       {
-        selector: '.amljs-prompt-button--ok',
+        selector: '.amljs-prompt-button.amljs-button--ok',
         handler: (res) => {
           res(value);
         }
@@ -28,7 +28,10 @@ const promptModal = async (options) => {
     ],
     root: options.root || document.body,
     componentType: 'prompt',
-    s
+    s,
+    closable: options.closable,
+    animation: options.animation,
+    width: options.width,
   });
 
   const input = root.querySelector('.amljs-prompt-input');

@@ -1,0 +1,78 @@
+@import "../animations/easeIn";
+@import "../animations/easeOut";
+@import "../animations/easeInScaled";
+@import "../animations/easeOutScaled";
+@import "../animations/slideIn";
+@import "../animations/slideOut";
+@import "../animations/verticalSlideIn";
+@import "../animations/verticalSlideOut";
+
+.amljs-modal {
+  position: fixed;
+  top: 10%;
+  left: calc(50% - 150px);
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 8px 16px;
+  width: 300px;
+  z-index: 99999;
+  &-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99998;
+    animation-name: easeIn;
+    animation-duration: 150ms;
+    animation-timing-function: ease-in;
+    animation-fill-mode: none;
+    &-close {
+      animation-name: easeOut;
+      animation-duration: 150ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: none;
+    }
+  }
+
+  &-ease-in {
+    animation-name: easeInScaled;
+    animation-duration: 150ms;
+    animation-timing-function: ease-in;
+    animation-fill-mode: none;
+  }
+  &-ease-out {
+    animation-name: easeOutScaled;
+    animation-duration: 150ms;
+    animation-timing-function: ease-in;
+    animation-fill-mode: none;
+  }
+
+  &-slide-in {
+    animation-name: slideIn;
+    animation-duration: 150ms;
+    animation-timing-function: ease-in;
+    animation-fill-mode: none;
+  }
+  &-slide-out {
+    animation-name: slideOut;
+    animation-duration: 150ms;
+    animation-timing-function: ease-in;
+    animation-fill-mode: none;
+  }
+  &-verticalSlide-in {
+    animation-name: verticalSlideIn;
+    animation-duration: 150ms;
+    animation-timing-function: ease-in;
+    animation-fill-mode: none;
+  }
+  &-verticalSlide-out {
+    animation-name: verticalSlideOut;
+    animation-duration: 150ms;
+    animation-timing-function: ease-in;
+    animation-fill-mode: none;
+  }
+}
