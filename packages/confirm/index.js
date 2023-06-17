@@ -10,19 +10,21 @@ const confirmModal = async (options) => {
   const template = `
     ${title ? `<div class="amljs-confirm-title">${title}</div>` : ''}
     ${message ? `<div class="amljs-confirm-message">${message}</div>` : ''}
-    <button class="amljs-confirm-button amljs-confirm-button--ok">${okText}</button>
-    <button class="amljs-confirm-button amljs-confirm-button--cancel">${cancelText}</button>
+    <div class="amljs-confirm-buttons">
+      <button class="amljs-button amljs-confirm-button amljs-button--ok">${okText}</button>
+      <button class="amljs-button amljs-confirm-button amljs-button--cancel">${cancelText}</button>
+    </div>
   `;
 
   const buttons = [
     {
-      selector: '.amljs-confirm-button--ok',
+      selector: '.amljs-confirm-button.amljs-button--ok',
       handler: (resolver) => {
         resolver(true);
       }
     },
     {
-      selector: '.amljs-confirm-button--cancel',
+      selector: '.amljs-confirm-button.amljs-button--cancel',
       handler: (resolver) => {
         resolver(false);
       }
@@ -35,7 +37,10 @@ const confirmModal = async (options) => {
     buttons,
     root,
     componentType: 'confirm',
-    s
+    s,
+    closable: options.closable,
+    animation: options.animation,
+    width: options.width,
   });
 
   return promise;

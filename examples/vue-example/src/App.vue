@@ -14,6 +14,7 @@ const onConfirmClick = async () => {
     message: 'Are you sure?',
     okText: 'Okay',
     cancelText: 'Nope',
+    closable: true,
   });
 }
 
@@ -30,6 +31,8 @@ const onPromptClick = async () => {
     message: 'Type something',
     defaultValue: promptValue.value,
     placeholder: 'Type here',
+    closable: true,
+    animation: 'verticalSlide',
   });
 }
 

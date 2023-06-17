@@ -1,45 +1,8 @@
-@import "button";
-@import "../core/animations/easeIn";
-@import "../core/animations/easeInScaled";
-@import "../core/animations/easeOut";
-@import "../core/animations/easeOutScaled";
+@import "../core/stylesheet/container";
+@import "../core/stylesheet/button";
 @import "icon";
 
 .amljs-alert {
-  position: fixed;
-  top: 10%;
-  left: calc(50% - 150px);
-  background: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 1rem;
-  width: 300px;
-  animation-name: easeInScaled;
-  animation-duration: 150ms;
-  animation-timing-function: ease-in;
-  animation-fill-mode: none;
-  z-index: 99999;
-
-  &-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 99998;
-    animation-name: easeIn;
-    animation-duration: 150ms;
-    animation-timing-function: ease-in;
-    animation-fill-mode: none;
-    &-close {
-      animation-name: easeOut;
-      animation-duration: 150ms;
-      animation-timing-function: ease-out;
-      animation-fill-mode: none;
-    }
-  }
   &-title {
     display: flex;
     align-items: center;
@@ -61,7 +24,6 @@
     padding: 8px 15px;
     word-wrap: break-word;
     border-radius: 2px;
-    margin-bottom: 16px;
     &--error {
       background: #ffccc7;
     }
@@ -69,21 +31,15 @@
       background: #b7eb8f;
     }
   }
-}
-.amljs-alert-message {
-  margin-bottom: 1rem;
-}
 
-.amljs-alert-close {
-  animation-name: easeOutScaled;
-  animation-duration: 150ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: none;
-}
+  &-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+  }
 
-.amljs-alert-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0;
+  &-button {
+    margin-top: 8px;
+  }
 }
