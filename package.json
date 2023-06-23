@@ -1,6 +1,6 @@
 {
   "name": "async-modals-lib.js",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "Async Modals Lib",
   "main": "confirm.js",
   "scripts": {
@@ -22,6 +22,13 @@
     "react"
   ],
   "author": "Nikita Korolev <nick.korolev2011@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nick-korolev/async-modals-lib.js"
+  },
+  "bugs": {
+    "url": "https://github.com/nick-korolev/async-modals-lib.js/issues"
+  },
   "license": "ISC",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.59.11",
