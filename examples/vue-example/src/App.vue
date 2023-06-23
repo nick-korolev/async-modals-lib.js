@@ -52,39 +52,56 @@ const onRootAlertClick = async () => {
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <div class="confirm">
-        <button class="button" @click="onConfirmClick">{{ isConfirmed ? 'Confirmed' : 'Confirm' }}</button>
-      </div>
-      <div class="alert">
-        <button class="button" @click="onAlertClick">Alert</button>
-        <div ref="rootContainer" style="margin-left: 12px">
-          <button class="button" @click="onRootAlertClick">Root Alert</button>
+      <div class="block">
+        <h1>Confirm example</h1>
+        <div class="confirm">
+          <button class="button" @click="onConfirmClick">{{ isConfirmed ? 'Confirmed' : 'Confirm' }}</button>
         </div>
       </div>
-      <div class="prompt">
-        <button class="button" @click="onPromptClick">Prompt</button>
-        <div style="margin-left: 12px" v-if="promptValue">{{ promptValue }}</div>
+      <div class="block">
+        <h1>Alert example</h1>
+        <div class="alert">
+          <button class="button" @click="onAlertClick">Alert</button>
+          <div ref="rootContainer" style="margin-left: 12px">
+            <button class="button" @click="onRootAlertClick">Close on timeout</button>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <h1>Prompt example</h1>
+        <div class="prompt">
+          <button class="button" @click="onPromptClick">Prompt</button>
+        </div>
+        <div v-if="promptValue">{{ promptValue }}</div>
       </div>
     </div>
   </header>
 </template>
 
 <style>
+h1 {
+  margin: 0;
+}
+
 body {
   line-height: 1.6;
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
   Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
+  margin: 0;
 }
+
+.block {
+  padding: 16px 0;
+}
+
 .button {
-  background-color: #24292e;
+  background-color: transparent;
   border: 1px solid rgba(27,31,35,.2);
   border-radius: .25em;
-  color: #fff;
+  color: rgba(27,31,35);
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
@@ -97,12 +114,11 @@ body {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  transition: all .2s ease-in-out;
 }
 .button:hover {
-  background-color: #2f363d;
-  border-color: rgba(27,31,35,.5);
-  color: #fff;
   text-decoration: none;
+  opacity: 0.8;
 }
 .confirm {
   margin-top: 12px;
@@ -118,5 +134,10 @@ body {
   margin-top: 12px;
   display: flex;
   align-items: center;
+}
+.wrapper {
+  background: url("https://github-production-user-asset-6210df.s3.amazonaws.com/94742553/248329393-d83d1b4c-be68-494f-80da-db63b62735ff.png");
+  height: calc(100vh - 24px);
+  padding: 12px;
 }
 </style>

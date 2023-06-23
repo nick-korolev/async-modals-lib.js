@@ -5,6 +5,9 @@ This library provides simple API, and highly customizable way to implement modal
 
 **No dependencies**
 
+[Live demo](https://nick-korolev.github.io/async-modals-lib.js/)
+
+
 ![gzip](https://deno.bundlejs.com/?q=async-modals-lib.js&badge=)
 
 ## Installation
