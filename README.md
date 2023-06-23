@@ -1,6 +1,7 @@
 # Async Modals Library
 
 This library provides simple API, and highly customizable way to implement modals in your application. With built-in handling for asynchronous actions, it supports alert modals with customizable success and error states, a user confirmation step with customizable OK and Cancel buttons, a prompt modal component which allows users to enter data.
+![image](https://github.com/nick-korolev/async-modals-lib.js/assets/94742553/d83d1b4c-be68-494f-80da-db63b62735ff)
 
 **No dependencies**
 
