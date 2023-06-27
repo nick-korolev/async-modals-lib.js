@@ -21,16 +21,26 @@ const onConfirmClick = async () => {
   }, 3000);
 }
 
-const onAlertClick = async () => {
+const onErrorAlertClick = async () => {
   await alert({
     title: 'Internal error',
     message: 'Something went wrong',
     type: 'error',
+    closable: true,
+  });
+}
+
+const onSuccessAlertClick = async () => {
+  await alert({
+    title: 'Done!',
+    message: 'Data has been saved',
+    type: 'success',
   });
 }
 
 const onPromptClick = async () => {
   promptValue.value = await prompt({
+    title: 'Prompt',
     message: 'Type something',
     defaultValue: promptValue.value,
     placeholder: 'Type here',
@@ -62,7 +72,8 @@ const onRootAlertClick = async () => {
       <div class="block">
         <h1>Alert example</h1>
         <div class="alert">
-          <button class="button" @click="onAlertClick">Alert</button>
+          <button class="button" @click="onErrorAlertClick">Alert Error</button>
+          <button class="button" @click="onSuccessAlertClick" style="margin-left: 12px">Alert Success</button>
           <div ref="rootContainer" style="margin-left: 12px">
             <button class="button" @click="onRootAlertClick">Close on timeout</button>
           </div>
@@ -136,7 +147,6 @@ body {
   align-items: center;
 }
 .wrapper {
-  background: url("https://github-production-user-asset-6210df.s3.amazonaws.com/94742553/248329393-d83d1b4c-be68-494f-80da-db63b62735ff.png");
   height: calc(100vh - 24px);
   padding: 12px;
 }

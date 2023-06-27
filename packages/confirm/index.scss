@@ -3,29 +3,28 @@
 
 .amljs-confirm {
   &-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 22px;
-    margin-bottom: 8px;
+    margin-bottom: 24px;
+    color: #2D3748;
+    font-weight: 700;
+    line-height: 28px;
   }
 
   &-message {
     box-sizing: border-box;
-    color: #000000d9;
-    font-size: 18px;
+    font-size: 14px;
     font-variant: tabular-nums;
-    line-height: 1.5715;
+    line-height: 24px;
     list-style: none;
     font-feature-settings: "tnum";
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 15px;
     word-wrap: break-word;
     border-radius: 2px;
     margin-bottom: 16px;
+    padding: 12px 16px;
+    background: #BEE3F8;
+    color: #2D3748;
+    border-left: 4px solid var(--blue-500, #3182CE);
   }
   &-close {
     animation-name: easeOutScaled;
@@ -37,9 +36,18 @@
   &-buttons {
     display: flex;
     justify-content: space-between;
+    margin: 0 -8px;
     button {
-      width: 47%;
+      flex: 1;
+      margin: 0 8px;
     }
 
+    button:first-child {
+      background: #3182CE;
+    }
+    button:last-child {
+      color: #1A202C;
+      background: #EDF2F7;
+    }
   }
 }
