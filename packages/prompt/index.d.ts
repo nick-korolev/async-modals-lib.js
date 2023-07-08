@@ -8,6 +8,7 @@ interface IPromptOptions {
   closable?: boolean;
   animation?: 'ease' | 'slide' | 'verticalSlide';
   width?: number;
+  component?: 'input' | 'textarea';
 }
 
 export default function (options: IPromptOptions): Promise<string>;
