@@ -8,10 +8,18 @@ const promptModal = async (options) => {
   const defaultValue = options.defaultValue || '';
   const placeholder = options.placeholder || '';
 
+  const component = options.component ? options.component : 'input';
+  if (component !== 'input' && component !== 'textarea') {
+    throw new Error('Invalid component type');
+  }
+  let templateElement = `<input class="amljs-prompt-input" placeholder="${placeholder}" type="text" />`;
+  if (component === 'textarea') {
+    templateElement = `<textarea class="amljs-prompt-input" placeholder="${placeholder}"></textarea>`;
+  }
   const template = `
     ${title ? `<div class="amljs-prompt-title">${title}</div>` : ''}
     ${message ? `<div class="amljs-prompt-message">${message}</div>` : ''}
-    <input class="amljs-prompt-input" placeholder="${placeholder}" type="text" />
+    ${templateElement}
     <button class="amljs-button amljs-prompt-button amljs-button--ok">${buttonText}</button>
   `;
 
@@ -39,7 +47,7 @@ const promptModal = async (options) => {
   input.value = value;
   input.addEventListener('keyup', (e) => {
     value = e.target.value;
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && component === 'input') {
       resolver(value);
     }
   });
