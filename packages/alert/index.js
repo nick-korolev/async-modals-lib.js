@@ -25,12 +25,14 @@ const alertModal = async (options) => {
   const alertButtonClass = options.type === 'error' ? 'amljs-button--cancel' : 'amljs-button--ok';
   const alertMessageClass = options.type === 'error' ? 'amljs-alert-message--error' : 'amljs-alert-message--success';
   const template = `
-    ${ title ? `<div class="amljs-alert-title">${title}</div>` : ''}
-    <div class="amljs-alert-icon">
-      ${options.type === 'success' ? SuccessIcon : ErrorIcon}
+    <div class="amljs-alert-content">
+      ${ title ? `<div class="amljs-alert-title" id="alert-title">${title}</div>` : ''}
+      <div class="amljs-alert-icon" aria-hidden="true">
+        ${options.type === 'success' ? SuccessIcon : ErrorIcon}
+      </div>
+      ${ message ? `<div class="amljs-alert-message ${alertMessageClass}" id="alert-message">${message}</div>` : ''}
+      ${ timeout ? '' : `<button class="amljs-alert-button amljs-button ${alertButtonClass}" aria-labelledby="alert-title alert-message">${buttonText}</button>` }
     </div>
-    ${ message ? `<div class="amljs-alert-message ${alertMessageClass}">${message}</div>` : ''}
-    ${ timeout ? '' : `<button class="amljs-alert-button amljs-button ${alertButtonClass}">${buttonText}</button>` }
   `;
 
   const buttons = [

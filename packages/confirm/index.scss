@@ -44,6 +44,9 @@
 
     button:first-child {
       background: #3182CE;
+      &:focus {
+        outline: 2px solid #2D3748;
+      }
     }
     button:last-child {
       color: #1A202C;

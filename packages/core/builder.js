@@ -25,11 +25,19 @@ export const builder = (options) => {
 
   let template = options.template || '';
   if (options.closable) {
-    template += `<button class="amljs-button amljs-close-button">${CloseIcon}</button>`;
+    template += `<button class="amljs-button amljs-close-button" aria-label="Close">${CloseIcon}</button>`;
   }
   const root = options.root || document.body;
   const component = document.createElement('div');
-  component.tabIndex = 0;
+  component.setAttribute('role', 'dialog');
+  component.setAttribute('aria-modal', 'true');
+
+  if (options.componentType === 'alert') {
+    component.setAttribute('role', 'alertdialog');
+  }
+  
+  component.tabIndex = -1;
+
   const backdrop = document.createElement('div');
   backdrop.classList.add('amljs-modal-backdrop');
   component.innerHTML = template;

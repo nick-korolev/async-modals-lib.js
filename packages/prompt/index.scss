@@ -50,5 +50,8 @@
   }
   &-button {
     background: #3182CE;
+    &:focus {
+      outline: 2px solid #2D3748;
+    }
   }
 }
