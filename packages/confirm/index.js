@@ -1,11 +1,11 @@
-import s from './index.scss';
-import { builder } from '../core/builder';
+import { builder } from '../core/builder'
+import s from './index.scss'
 
-const confirmModal = async (options) => {
-  const title = options.title || '';
-  const message = options.message || '';
-  const okText =  options.okText || 'OK';
-  const cancelText =  options.cancelText || 'Cancel';
+const confirmModal = async options => {
+  const title = options.title || ''
+  const message = options.message || ''
+  const okText = options.okText || 'OK'
+  const cancelText = options.cancelText || 'Cancel'
 
   const template = `
     <div class="amljs-confirm-content">
@@ -16,24 +16,24 @@ const confirmModal = async (options) => {
         <button class="amljs-button amljs-confirm-button amljs-button--cancel" aria-describedby="confirm-title confirm-message">${cancelText}</button>
       </div>
     </div>
-  `;
+  `
 
   const buttons = [
     {
       selector: '.amljs-confirm-button.amljs-button--ok',
-      handler: (resolver) => {
-        resolver(true);
-      }
+      handler: resolver => {
+        resolver(true)
+      },
     },
     {
       selector: '.amljs-confirm-button.amljs-button--cancel',
-      handler: (resolver) => {
-        resolver(false);
-      }
-    }
-  ];
+      handler: resolver => {
+        resolver(false)
+      },
+    },
+  ]
 
-  const root = options.root || document.body;
+  const root = options.root || document.body
   const { promise } = builder({
     template,
     buttons,
@@ -43,9 +43,9 @@ const confirmModal = async (options) => {
     closable: options.closable,
     animation: options.animation,
     width: options.width,
-  });
+  })
 
-  return promise;
-};
+  return promise
+}
 
-export default confirmModal;
+export default confirmModal
