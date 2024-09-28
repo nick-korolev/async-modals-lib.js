@@ -7,4 +7,5 @@ webpack.config.js
 .prettierrc.json
 .eslintignore
 .eslintrc.js
+biome.json
 .github
